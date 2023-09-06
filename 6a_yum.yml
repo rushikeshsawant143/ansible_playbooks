@@ -1,0 +1,21 @@
+---
+- name: latest version of all required packages installed
+  hosts: dev
+  tasks:
+    - name: install packages using yum
+      yum:
+        name:
+        - firewalld
+        - httpd
+        - mariadb-server
+        - php
+        - php-mysql
+        state: latest
+    - name: start the httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: true
+
+# To check whether package is installed use below command.
+# rpm -qa | grep firewalld

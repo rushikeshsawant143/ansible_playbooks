@@ -1,0 +1,14 @@
+---
+- name: Testing the Jinja Template with Playbook
+  hosts: myhost
+  become: yes
+  vars:
+    system_owner: Ansible_Admin@example.com
+
+  tasks:
+    - template:
+        src: 10a_test_jinja.j2
+        dest: /tmp/test.txt
+        owner: root
+        group: root
+        mode: 0644

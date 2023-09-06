@@ -1,0 +1,10 @@
+---
+- name:
+  hosts: all
+  tasks:
+    - name: install packages
+      yum:
+        name: 
+        - httpd
+        - tree
+      

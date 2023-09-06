@@ -1,0 +1,19 @@
+# --- represents this file as a playbook
+---
+- name: This is Simple Playbook
+  # Execute this play on all hosts mentioned in inventory file.
+  hosts:  all
+  # List of tasks to be executed
+  tasks:
+    - name: This is Debug tasks 1
+      debug:
+        msg: "Hello from task 1"
+    - name: This is Debug tasks 2
+      debug:
+        msg: "Hello from task 2"
+    - name: This is Debug tasks 3
+      debug:
+        msg: "Hello from task 3"
+    - name: This is Debug tasks 4
+      debug:
+        msg: "Hello from task 4"

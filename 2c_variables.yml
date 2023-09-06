@@ -1,0 +1,13 @@
+---
+- name: Use variables Part 2
+  gather_facts: no
+  hosts: myhost
+
+  tasks:
+    - name: Get hostname of server
+      shell: hostname
+      register: hostname_val
+
+    - name: Use id variable in some other tasks
+      debug:
+        msg: "{{ hostname_val.stdout }}"

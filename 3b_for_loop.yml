@@ -1,0 +1,17 @@
+---
+- name: For loop example
+  hosts: myhost
+  vars:
+    - users:
+        user1:
+          name: my-name-1
+          password: my-password-1
+        user2:
+          name: my-name-2
+          password: my-password-2
+
+  tasks:
+    - name: For loop
+      debug:
+        msg: "My name is {{ item.value.name }} and password is {{ item.value.password }}"
+      with_dict: "{{ users }}"

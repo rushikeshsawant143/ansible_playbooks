@@ -1,0 +1,25 @@
+---
+- name: simple playbook
+  hosts: all
+  vars:
+    - username: rushi
+      password: rushi
+  tasks: 
+    - name: httpd install
+      yum: 
+        name: 
+          - httpd
+        state: latest
+    - name: start httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: true
+      notify: 
+        - start httpd
+
+  handler: 
+    - name: start httpd
+      debug:
+        msg: "sshd restarted"
+

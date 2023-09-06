@@ -1,0 +1,17 @@
+---
+- name: Handler
+  hosts: dev
+  tasks:
+    - name: sample task 01
+      debug:
+        msg: "Sample Task to Restart sshd daemon"
+    - service:
+        name: sshd
+        state: restarted
+      notify:
+        - start sshd
+
+  handlers:
+    - name: start sshd
+      debug:
+        msg: "sshd has been restarted"
